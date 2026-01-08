@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+
+:root {
+  --bg: #f7f8fa;
+  --surface: #ffffff;
+  --text: #1f2937;         
+  --muted: #6b7280;         
+  
+  --primary: #A573E3;
+  --primary-dark: #824FBF;
+  --focus: #A573E3;
+
+  --border: #e5e7eb;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --maxw: 960px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f172a;
+    --surface: #0b1220;
+    --text: #e5e7eb;
+    --muted: #9aa3af;
+    --border: #1f2937;
+    --shadow: none;
+    --primary: #A573E3;
+    --primary-dark: #824FBF;
+    --focus: #A573E3;
+  }
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+a:hover { color: var(--primary-dark); text-decoration: underline; }
+a:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+img { max-width: 100%; height: auto; border-radius: 8px; }
+
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+.container {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+header {
+  background: var(--primary);
+  color: white;
+  padding: 48px 0;
+}
+header h1 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  text-align: center;
+}
+header .tagline {
+  text-align: center;
+  margin: 8px 0 0;
+  opacity: 0.9;
+}
+
+nav {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.nav-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 12px 20px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+nav a {
+  font-weight: 600;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+nav a:hover {
+  background: rgba(74, 111, 165, 0.08);
+  text-decoration: none;
+}
+
+main {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px;
+  margin: 24px auto;
+}
+
+h2 {
+  font-size: clamp(22px, 2.6vw, 28px);
+  margin: 24px 0 12px;
+  font-weight: 700;
+}
+p {
+  margin: 0 0 16px;
+  color: var(--text);
+}
+
+.section-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;          
+  flex-wrap: wrap;    
+}
+
+.about-photo {
+  width: 150px;      
+  height: 150px;
+  object-fit: cover;  
+  border-radius: 50%; 
+  border: 3px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.about-container p {
+  flex: 1;
+  min-width: 240px;   
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+}
+.skill-list li {
+  background: var(--surface);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  text-align: center;
+  font-weight: 600;
+}
+
+.edu-item h3 {
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+.edu-item p {
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.project {
+  border: 1px solid var(--border);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.project h3 {
+  margin: 0 0 10px;
+}
+
+.project-images {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 12px;
+}
+.project-images img {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+footer {
+  background: var(--primary);
+  color: white;
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 40px;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: -9999px;
+}
+.skip-link:focus {
+  left: 16px;
+  top: 16px;
+  background: var(--surface);
+  color: var(--text);
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 2px solid var(--focus);
+}
+
+@media (max-width: 768px) {
+  .nav-inner { justify-content: flex-start; }
+
+  main {
+    padding: 22px;
+    margin: 16px auto;
+  }
+
+  header { padding: 36px 0; }
+}
